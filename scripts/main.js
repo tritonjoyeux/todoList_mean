@@ -15,5 +15,10 @@
 				return this.tasks.filter(el => !el.isDone).length;
 			}
 		},
+		methods: {
+			removeElement: function (index) {
+    			this.tasks.splice(index, 1);
+			}
+		}
 	});
 }
