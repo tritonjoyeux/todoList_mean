@@ -37,24 +37,10 @@
     <p>Il reste <strong>1 </strong> sur <strong>3</strong> à effectuer.</p>
     
     <ul class="collection">
-        <li class="collection-item">
-            <input type="checkbox" id="t_1" checked>
-            <label for="t_1">task 1</label>
-            <a href="#" class="link-delete" title="Supprimer cette tâche">
-                <i class="small material-icons">delete_forever</i>
-            </a>
-        </li>
-        <li class="collection-item">
-            <input type="checkbox" id="t_2">
-            <label for="t_2">task 2</label>
-            <a href="#" class="link-delete" title="Supprimer cette tâche">
-                <i class="small material-icons">delete_forever</i>
-            </a>
-        </li>
-        <li class="collection-item">
-            <input type="checkbox" id="t_3" checked>
-            <label for="t_1">task 3</label>
-            <a href="#" class="link-delete" title="Supprimer cette tâche">
+        <li class="collection-item" v-for="(task, index) in tasks">
+            <input type="checkbox" :id="'t_'+(index+1)" v-model="task.isDone">
+            <label :for="'t_'+(index+1)">{{ task.title }}</label>
+            <a href="#" @click="removeElement(index)" class="link-delete" title="Supprimer cette tâche">
                 <i class="small material-icons">delete_forever</i>
             </a>
         </li>
