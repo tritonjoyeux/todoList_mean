@@ -18,6 +18,12 @@
 		methods: {
 			removeElement: function (index) {
     			this.tasks.splice(index, 1);
+			},
+			addElement: function () {
+				if(this.titleTask == "")
+					return;
+				this.tasks.push({title: this.titleTask, isDone: false});
+				this.titleTask = "";
 			}
 		}
 	});
