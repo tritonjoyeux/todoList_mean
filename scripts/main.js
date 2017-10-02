@@ -1,6 +1,19 @@
 {
 	'user strict';
 
+	const task = {
+		props : [ 'task', 'index' ],
+		template: `
+		<li class="collection-item">
+			<input type="checkbox" :id="'t_'+(index+1)" v-model="task.isDone">
+			<label :for="'t_'+(index+1)">{{ task.title }}</label>
+			<a href="#" @click="removeElement(index)" class="link-delete" title="Supprimer cette tâche">
+				<i class="small material-icons">delete_forever</i>
+			</a>
+		</li>
+		`
+	};
+
 	new Vue({
 		el: 'main#app',
 		data: {
@@ -33,6 +46,7 @@
 					str+="s";
 				return nb+" "+str;	
 			}
-		}
+		},
+		components : { 'task' : task }
 	});
 }
